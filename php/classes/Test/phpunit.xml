@@ -1,0 +1,12 @@
+<phpunit>
+	<testsuites>
+		<testsuite name="GreatQuote">
+			<file>QuoteTest.php</file>
+		</testsuite>
+	</testsuites>
+	<filter>
+		<whitelist processUncoveredFilesFromWhitelist="true">
+			<directory suffix=".php"> </directory>
+		</whitelist>
+	</filter>
+</phpunit>
