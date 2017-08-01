@@ -85,7 +85,7 @@ class QuoteTest extends QuoteTestSetup {
 		$numRows = $this->getConnection()->getRowCount("quote");
 
 		//create the quote object
-		$quote = new Quote(null, $this->VALID_GREAT_QUOTE, $this->VALID_QUOTE_AUTHOR, $this->VALID_QUOTE_POSTER, $this->VALID_QUOTE_RATING);
+		$quote = new Quote(null, $this->VALID_GREAT_QUOTE, $this->VALID_QUOTE_POSTER, $this->VALID_QUOTE_AUTHOR,  $this->VALID_QUOTE_RATING);
 		//insert the quote object
 		$quote->insert($this->getPDO());
 
