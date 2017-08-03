@@ -366,7 +366,7 @@ class Quote implements \JsonSerializable {
 		//build an array of the quote objects that meet search criteria
 		$quotes = new \SplFixedArray($statement->rowCount());
 		$statement->setFetchMode(\PDO::FETCH_ASSOC);
-		while($row = $statement->fetch() !== false) {
+		while(($row = $statement->fetch()) !== false) {
 			try {
 				$quote = new Quote($row["quoteId"], $row["quote"], $row["quoteAuthor"], $row["quotePoster"], $row["quoteRating"]);
 				$quotes[$quotes->key()] = $quote;
