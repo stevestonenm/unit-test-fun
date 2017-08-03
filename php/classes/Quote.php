@@ -83,7 +83,7 @@ class Quote implements \JsonSerializable {
 	 */
 
 	public function getQuoteId(): int {
-		return ($this->quoteId);
+		return $this->quoteId;
 	}
 
 	/**
@@ -186,11 +186,12 @@ class Quote implements \JsonSerializable {
 		}
 		$this->quotePoster = $newQuotePoster;
 	}
+
 	/**
 	 * accesor method for the rank of the quote, since the accessor method directly communicates with the database no sanitation is needed.
 	 * @return int $quoteRank the rank of the quote.
 	 */
-	public function getQuoteRating() : int  {
+	public function getQuoteRating(): int {
 		return $this->quoteRating;
 	}
 
