@@ -127,7 +127,7 @@ class Quote implements \JsonSerializable {
 		if(empty($newQuote) === true) {
 			throw (new \InvalidArgumentException("quote is empty or insecure"));
 		}
-		if(strlen($newQuote) < 256) {
+		if(strlen($newQuote) > 256) {
 			throw(new \RangeException("quote is too long"));
 		}
 		$this->quote = $newQuote;
