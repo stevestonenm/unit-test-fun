@@ -92,8 +92,8 @@ abstract class QuoteTestSetup extends TestCase {
 		if($this->connection === null) {
 			// connect to mySQL and provide the interface to PHPUnit
 			//update the correct ini file corresponding to group# (0-5)
-			$config = readConfig("/etc/apache2/capstone-mysql/doesnotexist.ini");
-			$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/doesnotexist.ini");
+			$config = readConfig("/etc/apache2/capstone-mysql/quote0.ini");
+			$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/quote0.ini");
 			$this->connection = $this->createDefaultDBConnection($pdo, $config["database"]);
 		}
 		return($this->connection);

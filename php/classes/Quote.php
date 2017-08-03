@@ -128,7 +128,7 @@ class Quote implements \JsonSerializable {
 			throw (new \InvalidArgumentException("quote is empty or insecure"));
 		}
 		if(strlen($newQuote) < 256) {
-			throw(new \RangeException("quote is to long"));
+			throw(new \RangeException("quote is too long"));
 		}
 		$this->quote = $newQuote;
 	}
@@ -155,7 +155,7 @@ class Quote implements \JsonSerializable {
 			throw(new \InvalidArgumentException("quoteAuthor is empty or insecure"));
 		}
 		if(strlen($newQuoteAuthor) > 64) {
-			throw(new \RangeException("quoteAuthor is to long"));
+			throw(new \RangeException("quoteAuthor is too long"));
 		}
 		$this->quoteAuthor = $newQuoteAuthor;
 	}
@@ -182,7 +182,7 @@ class Quote implements \JsonSerializable {
 			throw(new \InvalidArgumentException());
 		}
 		if(strlen($newQuotePoster) > 64) {
-			throw(new \InvalidArgumentException("quotePoster is to long"));
+			throw(new \InvalidArgumentException("quotePoster is too long"));
 		}
 		$this->quotePoster = $newQuotePoster;
 	}
