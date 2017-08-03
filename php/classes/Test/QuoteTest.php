@@ -85,7 +85,7 @@ class QuoteTest extends QuoteTestSetup {
 		$numRows = $this->getConnection()->getRowCount("quote");
 
 		//create the quote object
-		$quote = new Quote(null, $this->VALID_GREAT_QUOTE, $this->VALID_QUOTE_POSTER, $this->VALID_QUOTE_AUTHOR,  $this->VALID_QUOTE_RATING);
+		$quote = new Quote(null, $this->VALID_GREAT_QUOTE, $this->VALID_QUOTE_POSTER, $this->VALID_QUOTE_AUTHOR, $this->VALID_QUOTE_RATING);
 		//insert the quote object
 		$quote->insert($this->getPDO());
 
@@ -204,11 +204,27 @@ class QuoteTest extends QuoteTestSetup {
 
 		//insert the quote into the database
 		$quote->insert($this->getPDO());
+//PROBLEM BELOW
+		//grab the quote from the database.
+//		$pdoQuote = Quote::getQuoteByAuthor($this->getPDO(), $quote->getQuoteAuthor());
+//		$this->assertEquals($numRows + 1, $this->getConnection()->getRowCount("quote"));
+
+//		$this->assertEquals($pdoQuote->getQuoteId(), $quote->getQuoteId());
+//		$this->assertEquals($pdoQuote->getQuote(), $quote->getQuote());
+//		$this->assertEquals($pdoQuote->getQuoteAuthor(), $quote->getQuoteAuthor());
+//		$this->assertEquals($pdoQuote->getQuotePoster(), $quote->getQuotePoster());
+//		$this->assertEquals($pdoQuote->getQuoteRating(), $quote->getQuoteRating());
+//	}
+
 
 		//grab the quote from the database.
-		$pdoQuote = Quote::getQuoteByAuthor($this->getPDO(), $quote->getQuoteAuthor());
+		$results = Quote::getQuoteByAuthor($this->getPDO(), $quote->getQuoteAuthor());
 		$this->assertEquals($numRows + 1, $this->getConnection()->getRowCount("quote"));
+		$this->assertCount(1,$results);
 
+		$this->assertContainsOnlyInstancesOf("Edu\\Cnm\\Quote",$results);
+
+		$pdoQuote=$results[0];
 		$this->assertEquals($pdoQuote->getQuoteId(), $quote->getQuoteId());
 		$this->assertEquals($pdoQuote->getQuote(), $quote->getQuote());
 		$this->assertEquals($pdoQuote->getQuoteAuthor(), $quote->getQuoteAuthor());
